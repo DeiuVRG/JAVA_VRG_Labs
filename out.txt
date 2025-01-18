@@ -1,0 +1,4 @@
+Suma: 9
+Media: 3.0
+Minim: 2
+Maxim: 4
