@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <title>Lista Carti</title>
+</head>
+<body>
+<div class="container">
+    <h1>Lista cartilor preluate prin repository</h1>
+    <form method="post" action="operatii">
+        <input type="text" name="isbn" placeholder="ISBN..." />
+        <input type="text" name="titlu" placeholder="Titlul..." />
+        <input type="text" name="autor" placeholder="Autorul..." />
+        <input type="submit" name="adauga" value="Adauga" />
+        <input type="submit" name="modifica" value="Modifica" />
+        <input type="submit" name="sterge" value="Sterge" />
+        <input type="submit" name="filtreaza" value="Filtreaza dupa autor" />
+    </form>
+    <p th:text="${mesaj}"></p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>Titlul</th>
+            <th>Autorul</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="carte : ${carti}">
+            <td th:text="${carte.isbn}"></td>
+            <td th:text="${carte.titlu}"></td>
+            <td th:text="${carte.autor}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
