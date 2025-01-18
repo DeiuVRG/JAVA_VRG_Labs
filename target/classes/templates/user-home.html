@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Home</title>
+</head>
+<body>
+<h1>Bun venit!</h1>
+<form th:action="@{/user/home}" method="get">
+    <input type="text" name="marca" placeholder="Marca" />
+    <input type="text" name="culoare" placeholder="Culoare" />
+    <input type="text" name="tipCombustibil" placeholder="Tip combustibil" />
+    <button type="submit">Filtrează</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nr. Înmatriculare</th>
+        <th>Marca</th>
+        <th>Model</th>
+        <th>Culoare</th>
+        <th>An fabricație</th>
+        <th>Preț</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="masina : ${masini}">
+        <td th:text="${masina.nrInmatriculare}"></td>
+        <td th:text="${masina.marca}"></td>
+        <td th:text="${masina.model}"></td>
+        <td th:text="${masina.culoare}"></td>
+        <td th:text="${masina.anFabricatie}"></td>
+        <td th:text="${masina.pret}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

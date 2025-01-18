@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editor Home</title>
+</head>
+<body>
+<h1>Bun venit, editor!</h1>
+
+<h2>Adaugă o mașină</h2>
+<form th:action="@{/editor/adauga}" method="post">
+    <input type="text" name="nrInmatriculare" placeholder="Nr. Înmatriculare" />
+    <input type="text" name="marca" placeholder="Marca" />
+    <input type="text" name="model" placeholder="Model" />
+    <input type="text" name="culoare" placeholder="Culoare" />
+    <input type="number" name="anFabricatie" placeholder="An fabricație" />
+    <input type="number" name="capacitateCilindrica" placeholder="Capacitate cilindrică" />
+    <input type="text" name="tipCombustibil" placeholder="Tip combustibil" />
+    <input type="number" name="putere" placeholder="Putere" />
+    <input type="number" name="cuplu" placeholder="Cuplu" />
+    <input type="number" name="volumPortbagaj" placeholder="Volum portbagaj" />
+    <input type="number" name="pret" placeholder="Preț" />
+    <button type="submit">Adaugă</button>
+</form>
+
+<h2>Modifică o mașină</h2>
+<form th:action="@{/editor/modifica}" method="post">
+    <input type="text" name="nrInmatriculare" placeholder="Nr. Înmatriculare" required />
+    <input type="text" name="marca" placeholder="Marca (opțional)" />
+    <input type="text" name="model" placeholder="Model (opțional)" />
+    <!-- Adaugă și alte câmpuri similare dacă este nevoie -->
+    <button type="submit">Modifică</button>
+</form>
+
+<h2>Șterge o mașină</h2>
+<form th:action="@{/editor/sterge}" method="post">
+    <input type="text" name="nrInmatriculare" placeholder="Nr. Înmatriculare" required />
+    <button type="submit">Șterge</button>
+</form>
+
+<h2>Lista mașinilor</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Nr. Înmatriculare</th>
+        <th>Marca</th>
+        <th>Model</th>
+        <th>Culoare</th>
+        <th>An fabricație</th>
+        <th>Preț</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="masina : ${masini}">
+        <td th:text="${masina.nrInmatriculare}"></td>
+        <td th:text="${masina.marca}"></td>
+        <td th:text="${masina.model}"></td>
+        <td th:text="${masina.culoare}"></td>
+        <td th:text="${masina.anFabricatie}"></td>
+        <td th:text="${masina.pret}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
